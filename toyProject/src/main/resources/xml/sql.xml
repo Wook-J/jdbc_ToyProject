@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>sql.xml file!!!</comment>
+	
+	<!-- 학생 전체 조회 -->
+	<entry key="studentListFullView">
+		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER, STD_SCORE
+		FROM TB_STUDENT
+		ORDER BY 1 ASC
+	</entry>
+	
+	<!-- 학생 상세 조회 -->
+	<entry key="studentDetailView">
+		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER, STD_SCORE
+		FROM TB_STUDENT
+		WHERE STD_NO = ?
+	</entry>
+	
+</properties>
