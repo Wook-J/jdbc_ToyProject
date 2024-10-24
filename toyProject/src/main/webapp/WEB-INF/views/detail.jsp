@@ -14,10 +14,14 @@
   <h1> ${student.name}의 상세 정보</h1>
   
   <div class="content">
+<%-- 이것도 잘 들어가 있음
+	<div> 번호 : ${student.studentNo}</div>
+--%>	  
 	<div> 이름 : ${student.name}</div>
 	<div> 나이 : ${student.age}</div>
 	<div> 성별 : ${student.gender}</div>
 	<div> 성적 : ${student.score}</div>
+	
   </div>
 
   

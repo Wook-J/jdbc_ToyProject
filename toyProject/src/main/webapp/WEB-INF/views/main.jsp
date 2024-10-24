@@ -20,7 +20,6 @@
 		<th>학생 이름</th>
 	  </tr>
 	</thead>
-
 	<tbody>
 	  <c:forEach items="${studentList}" varStatus="vs" var="std">
 	  <tr>
@@ -30,6 +29,10 @@
 	  </c:forEach>
 	</tbody>
   </table>
+  
+  <div>
+	<button id="addStudentBtn">학생 추가</button>
+  </div>
 
   <%-- session 범위에 message 가 있을 경우 --%>
   <c:if test="${not empty sessionScope.message}">
