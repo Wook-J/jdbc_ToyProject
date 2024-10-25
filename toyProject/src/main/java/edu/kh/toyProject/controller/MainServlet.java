@@ -26,8 +26,30 @@ public class MainServlet extends HttpServlet{
 			ToyProjectService service = new ToyProjectServiceImpl();
 			
 			List<Student> studentList = service.studentListFullView();
+			int numMale = 0;
+			int numScoreA = 0;
+			int numScoreB = 0;
+			int numScoreC = 0;
+			int numScoreD = 0;
+			int numScoreF = 0;
+			
+			for(Student std : studentList) {
+				if(std.getGender().equals("M")) numMale++;
+				
+				if(std.getScore().equals("A")) numScoreA++;
+				else if(std.getScore().equals("B")) numScoreB++;
+				else if(std.getScore().equals("C")) numScoreC++;
+				else if(std.getScore().equals("D")) numScoreD++;
+				else numScoreF++;
+			}
 			
 			req.setAttribute("studentList", studentList);
+			req.setAttribute("numMale", numMale);
+			req.setAttribute("numScoreA", numScoreA);
+			req.setAttribute("numScoreB", numScoreB);
+			req.setAttribute("numScoreC", numScoreC);
+			req.setAttribute("numScoreD", numScoreD);
+			req.setAttribute("numScoreF", numScoreF);
 			
 			String path = "/WEB-INF/views/main.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);

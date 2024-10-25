@@ -13,23 +13,53 @@
 <body>
   <h1>학생 조회 메인 페이지</h1>
   
-  <h2>학생 수 : ${fn:length(studentList)}</h2>
+  <h3>
+	학생 수 : 총 ${fn:length(studentList)} 명 / 
+	남 : ${numMale}명, 여: ${fn:length(studentList) - numMale}명
+  </h3>
+  
+  <div>
+	<div id="scoresTitle">성적분포</div>
+	<table id="scoresTable">
+	  <tr>
+		<th>학점</th>
+		<th>A</th>
+		<th>B</th>
+		<th>C</th>
+		<th>D</th>
+		<th>F</th>
+	  </tr>
+	  <tr>
+		<th>학생 수</th>
+		<td>${numScoreA}</td>
+		<td>${numScoreB}</td>
+		<td>${numScoreC}</td>
+		<td>${numScoreD}</td>
+		<td>${numScoreF}</td>
+	  </tr>
+	</table>
+  </div>
+
+  
   <table id="studentList" border="1">
 	<thead>
 	  <tr>
 		<th>학생 이름</th>
+		<th>나이</th>
 		<th>성별</th>
 		<th>성적</th>
-		<th>고유번호</th>
 	  </tr>
 	</thead>
 	<tbody>
 	  <c:forEach items="${studentList}" varStatus="vs" var="std">
 	  <tr>
 		<th><a href="/student/detail?studentNo=${std.studentNo}">${std.name}</a></th>
-		<th>${std.gender}</th>
+		<th>${std.age}</th>
+		<th>
+		  <c:if test="${std.gender == 'M'}">남</c:if>
+		  <c:if test="${std.gender == 'F'}">여</c:if>
+		</th>
 		<th>${std.score}</th>
-		<th>${std.studentNo}</th>
 	  </tr>
 	  </c:forEach>
 	</tbody>

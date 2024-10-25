@@ -13,6 +13,7 @@ updateForm.addEventListener("submit", (e)=>{
     alert("학생이름을 입력해 주세요");
     stdName.focus();
     stdName.value = "";
+    return;
   }
 
   const inputAge = age.value;
@@ -20,13 +21,13 @@ updateForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     alert("양수를 입력해주세요");
     age.focus();
-    age.value = "";
+    return;
   }
   if(Math.floor(inputAge) != inputAge){
     e.preventDefault();
     alert("자연수를 입력해주세요");
     age.focus();
-    age.value = "";
+    return;
   }
 });
 

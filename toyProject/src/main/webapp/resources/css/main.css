@@ -1,4 +1,27 @@
-/* 테이블 스타일 지정 */
+#scoresTitle{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#scoresTable{
+  margin-bottom: 10px;
+}
+
+#scoresTable, #scoresTable th, #scoresTable td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px 8px;
+}
+#scoresTable th{
+  background-color: skyblue;
+  width: 60px;
+}
+
+#scoresTable td{
+  text-align: center;
+}
+
 #studentList{
   border-collapse: collapse;
 }
@@ -7,11 +30,11 @@
   padding: 5px 8px;
 }
 
-thead th{
+#studentList thead th{
   background-color: skyblue;
 }
 
 /* 짝수번째 행 */
-tbody > tr:nth-of-type(2n){
+#studentList tbody > tr:nth-of-type(2n){
   background-color: #dddd; 
 }
