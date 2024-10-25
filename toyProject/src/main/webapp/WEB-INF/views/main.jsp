@@ -13,22 +13,29 @@
 <body>
   <h1>학생 조회 메인 페이지</h1>
   
+  <h2>학생 수 : ${fn:length(studentList)}</h2>
   <table id="studentList" border="1">
 	<thead>
 	  <tr>
-		<th>학생 번호</th>
 		<th>학생 이름</th>
+		<th>성별</th>
+		<th>성적</th>
+		<th>고유번호</th>
 	  </tr>
 	</thead>
 	<tbody>
 	  <c:forEach items="${studentList}" varStatus="vs" var="std">
 	  <tr>
-		<th>${std.studentNo}</th>
 		<th><a href="/student/detail?studentNo=${std.studentNo}">${std.name}</a></th>
+		<th>${std.gender}</th>
+		<th>${std.score}</th>
+		<th>${std.studentNo}</th>
 	  </tr>
 	  </c:forEach>
 	</tbody>
   </table>
+  
+  <br>
   
   <div>
 	<button id="addStudentBtn">학생 추가</button>

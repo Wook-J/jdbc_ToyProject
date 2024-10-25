@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /* 학생 상세 조회 페이지에서 나타날 사항
+ * 0. main.jsp에서 학생 이름 클릭시 (main.jsp 코드 확인)
  * 1. 선택된 학생에 대한 상세 정보 출력(이름/나이/성별/성적)
  *   쿼리스트링(?studentNo=~~) 부분에서 얻어온 값을 기준으로 서비스호출해서 객체 가져오기
  * 2. 목록으로 버튼(location.href="/")

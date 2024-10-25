@@ -12,9 +12,28 @@
 	
 	<!-- 학생 상세 조회 -->
 	<entry key="studentDetailView">
-		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER, STD_SCORE
+		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER, STD_SCORE, STD_COMMENT
 		FROM TB_STUDENT
 		WHERE STD_NO = ?
+	</entry>
+	
+	<!-- 학생 정보 수정 -->
+	<entry key="studentUpdate">
+		UPDATE TB_STUDENT
+		SET STD_NAME = ?, STD_AGE = ?, STD_SCORE = ?, STD_COMMENT = ?
+		WHERE STD_NO = ?
+	</entry>
+	
+	<!-- 학생 정보 삭제 -->
+	<entry key="studentDelete">
+		DELETE FROM TB_STUDENT
+		WHERE STD_NO = ?
+	</entry>
+	
+	<!-- 학생 추가 (SEQ_STUDENT_NO.NEXTVAL, 이름, 나이, 성별, 성적) -->
+	<entry key="studentAdd">
+		INSERT INTO TB_STUDENT
+		VALUES(SEQ_STUDENT_NO.NEXTVAL, ?, ?, ?, ?, ?)
 	</entry>
 	
 </properties>

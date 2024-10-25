@@ -13,26 +13,29 @@
 <body>
   <h1> ${student.name}의 상세 정보</h1>
   
-  <div class="content">
-<%-- 이것도 잘 들어가 있음
-	<div> 번호 : ${student.studentNo}</div>
---%>	  
-	<div> 이름 : ${student.name}</div>
-	<div> 나이 : ${student.age}</div>
-	<div> 성별 : ${student.gender}</div>
-	<div> 성적 : ${student.score}</div>
+  <div>
+
+	<div><strong>고유번호</strong> : ${student.studentNo}</div>
+	<div><strong>이름</strong> : ${student.name}</div>
+	<div><strong>나이</strong> : ${student.age}</div>
+	<div><strong>성별</strong> : ${student.gender}</div>
+	<div><strong>성적</strong> : ${student.score}</div>
+	<c:if test="${not empty student.studentComment}">
+	<div><strong>특이사항</strong> </div>
+	<div class="studentComment">${student.studentComment}</div>
+	</c:if>
 	
   </div>
 
   
   <div class="btn-container">
 	<div>
-	  <button id="goToListBtn">목록으로</button>
-	</div>
-
-	<div>
 	  <button id="updateBtn">수정</button>
 	  <button id="deleteBtn">삭제</button>
+	</div>
+	<br>
+	<div>
+	  <button id="goToListBtn">목록으로</button>
 	</div>
   </div>
   

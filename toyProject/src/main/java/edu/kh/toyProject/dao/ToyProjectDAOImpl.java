@@ -83,6 +83,7 @@ public class ToyProjectDAOImpl implements ToyProjectDAO{
 						.age(rs.getInt("STD_AGE"))
 						.gender(rs.getString("STD_GENDER"))
 						.score(rs.getString("STD_SCORE"))
+						.studentComment(rs.getString("STD_COMMENT"))
 						.build();
 			}
 			
@@ -92,6 +93,71 @@ public class ToyProjectDAOImpl implements ToyProjectDAO{
 		}
 		
 		return student;
+	}
+
+	@Override		// UpdateServlet 에서 학생 정보 수정 DAO
+	public int studentUpdate(Connection conn, int studentNo, String name, int age, String score, String studentComment) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("studentUpdate");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setInt(2, age);
+			pstmt.setString(3, score);
+			pstmt.setString(4, studentComment);
+			pstmt.setInt(5, studentNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	@Override		// DeleteServlet 에서 학생 정보 삭제 DAO
+	public int studentDelete(Connection conn, int studentNo) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("studentDelete");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, studentNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	@Override		// AddServlet 에서 학생 추가(INSERT) DAO
+	public int studentAdd(Connection conn, String stdName, int age, String gender, String score, String studentComment) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("studentAdd");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, stdName);
+			pstmt.setInt(2, age);
+			pstmt.setString(3, gender);
+			pstmt.setString(4, score);
+			pstmt.setString(5, studentComment);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

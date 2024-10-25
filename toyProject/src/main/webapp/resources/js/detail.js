@@ -12,3 +12,10 @@ const updateBtn = document.querySelector("#updateBtn");
 updateBtn.addEventListener("click", () => {
   location.href = "/student/update?studentNo=" + studentNo;
 });
+
+// 삭제버튼 클릭 시
+const deleteBtn = document.querySelector("#deleteBtn");
+deleteBtn.addEventListener("click", ()=>{
+  if(!confirm("정말 삭제하시겠습니까?")) return;
+  location.href = "/student/delete?studentNo=" + studentNo;
+});

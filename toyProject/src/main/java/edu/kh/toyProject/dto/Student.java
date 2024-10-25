@@ -15,10 +15,11 @@ import lombok.ToString;
 @Builder
 public class Student {
 	
-	private int studentNo;		// STD_NO
-	private String name;		// STD_NAME
-	private int age;			// STD_AGE
-	private String gender;		// STD_GENDER
-	private String score;		// STD_SCORE
+	private int studentNo;			// STD_NO
+	private String name;			// STD_NAME
+	private int age;				// STD_AGE
+	private String gender;			// STD_GENDER
+	private String score;			// STD_SCORE
+	private String studentComment;	// STD_COMMENT
 
 }
